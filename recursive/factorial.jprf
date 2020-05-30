@@ -1,0 +1,104 @@
+{
+ "fibonacci.correctness": [
+  {
+   "info": {
+    "theory": "fibonacci",
+    "formula": "correctness",
+    "status": "untried",
+    "prover": "PVS 7.0.1218 (International Allegro CL Enterprise Edition)"
+   }
+  }
+ ],
+ "factorial.correctness": [
+  {
+   "info": {
+    "theory": "factorial",
+    "formula": "correctness",
+    "status": "unchecked",
+    "prover": "PVS 7.0.1218 (International Allegro CL Enterprise Edition)"
+   },
+   "proofTree": {
+    "branch": "",
+    "name": "correctness",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "induct \"n\"",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "skeep 1 t",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "expand \"factorial\" 1",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "assert",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "expand \"^\"",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "lemma \"expt_plus_aux\" (\"n0x\" \"2\" \"m\" \"1\" \"n\" \"ja\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "replace -1",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "expand \"expt\" 1 1",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "expand \"expt\" 1 1",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "proofLite": [
+    "%|- correctness : PROOF",
+    "%|- (spread induct \"n\"",
+    "%|-   (",
+    "%|-    (then skeep 1 texpand \"factorial\" 1assertexpand \"^\"lemma \"expt_plus_aux\" (\"n0x\" \"2\" \"m\" \"1\" \"n\" \"ja\")replace -1expand \"expt\" 1 1expand \"expt\" 1 1)))))",
+    "%|- QED"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+factorial: THEORY
+  BEGIN 
+    factorial(n: posnat): recursive posnat =
+      if (n = 0) THEN 1 ELSE n * factorial(n-1) ENDIF
+    measure n
+    correctness: theorem
+      forall(n: above(3)): factorial(n) > 2^n
+
+  END factorial
